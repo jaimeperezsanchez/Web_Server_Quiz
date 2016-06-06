@@ -66,15 +66,14 @@ exports.index = function(req, res, next) {
 		if ("search" in req.query){
 			var search = req.query.search;
 			search = search.replace(' ', '%');
-			models.User.findAll().then(function(x){
-        models.Quiz.findAll({ include: [ models.Attachment ], order: 'question ASC', 
+			models.Quiz.findAll({ include: [ models.Attachment ], order: 'question ASC', 
 								where: {question: {$like: "%" + search + "%"}}})
 				.then(function(quizzes){
-					res.render('quizzes/index.ejs', { quizzes: quizzes, x: x });
+					res.render('quizzes/index.ejs', { quizzes: quizzes});
 				})
 				.catch(function(error) {
 				next(error);
-			});});
+			});
 		}else{
       models.User.findAll().then(function(x){
         models.Quiz.findAll({ include: [ models.Attachment ] })
