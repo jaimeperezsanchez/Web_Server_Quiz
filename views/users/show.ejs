@@ -11,6 +11,17 @@
   <%= user.isAdmin ? "Si" : "No" %>
 </p>
 
+<p>
+  <b>Número de quizzes:</b>
+    <% var a = 0 %> 
+      <% for (var j in q) { %> 
+       <% if (q[j].AuthorId === user.id) { %> 
+         <% a++ %>
+       <% } %>
+      <% } %>
+      <%= a %> 
+</p>
+
 <% if (session.user) { %>
   <p>
     <% if (session.user.isAdmin || session.user.id === user.id) { %>

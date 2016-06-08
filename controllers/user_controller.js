@@ -31,7 +31,10 @@ exports.index = function(req, res, next) {
 
 // GET /users/:id
 exports.show = function(req, res, next) {
-    res.render('users/show', {user: req.user});
+    models.Quiz.findAll()
+        .then(function(q){
+    res.render('users/show', {user: req.user, q: q});
+    });
 };
 
 

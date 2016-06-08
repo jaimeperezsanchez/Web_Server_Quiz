@@ -13,7 +13,7 @@
 
         <td>
            <a href="/quizzes/<%= quizzes[i].id %>"><%= quizzes[i].question %></a>
-              <p> (Autor: <% var anon = "Anónimo" %> 
+              <p> ( Autor: <% var anon = "Anónimo" %> 
                           <% for (var j in x) { %> 
                             <% if (x[j].id === quizzes[i].AuthorId) { %> 
                                 <%= x[j].username %>
